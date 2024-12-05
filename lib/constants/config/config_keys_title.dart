@@ -1,0 +1,34 @@
+class ConfigKeysTitle {
+  static const loginScreen = 'loginScreen';
+  static const dashboardScreen = 'dashboardScreen';
+  static const dashboardScreenOne = 'dashboardScreenOne';
+  static const dashboardMenuScreen = 'dashboardMenuScreen';
+  static const createVoucherScreen = 'CreateVoucherScreen';
+  static const draftVoucherScreen = 'draftVoucherScreen';
+  static const balanceSheetScreen = 'balanceSheetScreen';
+  static const workingCapitalScreen = 'workingCapitalScreen';
+  static const forgotPasswordScreen = 'forgotPasswordScreen';
+  static const hintText = ' hintText';
+  static const leaveHistoryScreen = 'leaveHistoryScreen';
+  static const applyLeaveScreen = 'applyLeaveScreen';
+  static const performanceScreen = 'performanceScreen';
+  static const hrChats = 'hrChats';
+  static const hrPendingRequest = 'hrPendingRequest';
+  static const applyLeaveContainerOne = 'applyLeaveContainerOne';
+  static const notificationScreen = 'notificationScreen';
+  static const salarySlipScreen = 'salarySlipScreen';
+  static const loanScreen = 'loanScreen';
+  static const applyLoanScreen = 'applyLoanScreen';
+  static const messageScreen = 'messageScreen';
+  static const settingScreen = 'settingScreen';
+  static const teamReportScreen = 'teamReportScreen';
+  static const evaluationScreen = 'evaluationScreen';
+  static const performanceTeamReportScreen = 'performanceTeamReportScreen';
+  static const addRecordScreen = 'addRecordScreen';
+  static const memberAttendanceReportScreen = 'memberAttendanceReportScreen';
+  static const imageScreen = 'imageScreen';
+  static const splashScreen = 'splashScreen';
+  static const evaluationHistoryScreen = 'evaluationHistoryScreen';
+  static const allLoanScreen = 'allLoanScreen';
+  static const announcementScreen = 'announcementScreen';
+}

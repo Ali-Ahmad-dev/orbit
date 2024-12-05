@@ -1,0 +1,200 @@
+class ConfigKeysBody {
+  static const loginTitle = 'loginTitle';
+  static const bodyLogin = 'bodyLogin';
+  static const bodyLogin1 = 'bodyLogin1';
+  static const bodyLogin2 = 'bodyLogin2';
+  static const dashboardBody1 = 'dashboardBody1';
+  static const dashboardBody2 = 'dashboardBody2';
+  static const dashboardBody3 = 'dashboardBody3';
+  static const dashboardBody4 = 'dashboardBody4';
+  static const dashboardBody5 = 'dashboardBody5';
+  static const dashboardBody6 = 'dashboardBody6';
+  static const dashboardBody7 = 'dashboardBody7';
+  static const dashboardBody8 = 'dashboardBody8';
+  static const dashboardBody9 = 'dashboardBody9';
+  static const dashboardBody10 = 'dashboardBody10';
+  static const dashboardBody11 = 'dashboardBody11';
+  static const dashboardBody12 = 'dashboardBody12';
+  static const dashboardBody13 = 'dashboardBody13';
+  static const dashboardMenu = 'dashboardMenu';
+  static const dashboardMenuOne = 'dashboardMenuOne';
+  static const dashboardMenu1 = 'dashboardMenu1';
+  static const dashboardMenu2 = 'dashboardMenu2';
+  static const dashboardMenu3 = 'dashboardMenu3';
+  static const dashboardMenu4 = 'dashboardMenu4';
+  static const dashboardMenu5 = 'dashboardMenu5';
+  static const dashboardMenu6 = 'dashboardMenu6';
+  static const dashboardMenu7 = 'dashboardMenu7';
+  static const dashboardMenu8 = 'dashboardMenu8';
+  static const dashboardMenu9 = 'dashboardMenu9';
+  static const dashboardMenu10 = 'dashboardMenu10';
+  static const dashboardMenu11 = 'dashboardMenu11';
+  static const createVoucherAppBar = 'createVoucherAppBar';
+  static const createVoucherBody = 'createVoucherBody';
+  static const createVoucherBody1 = 'createVoucherBody1';
+  static const draftVoucherAppBar = 'draftVoucherAppBar';
+  static const draftVoucherBody1 = 'draftVoucherBody1';
+  static const draftVoucherBody2 = 'draftVoucherBody2';
+  static const draftVoucherContainer1 = 'draftVoucherContainer1';
+  static const draftVoucherContainer2 = 'draftVoucherContainer2';
+  static const draftVoucherContainer3 = 'draftVoucherContainer3';
+  static const draftVoucherContainer4 = 'draftVoucherContainer4';
+  static const draftVoucherContainer5 = 'draftVoucherContainer5';
+  static const draftVoucherContainer6 = 'draftVoucherContainer6';
+  static const balanceSheetAppBar = 'balanceSheetAppBar';
+  static const balanceSheetContainer = 'balanceSheetContainer';
+  static const balanceSheetRow1 = 'balanceSheetRow1';
+  static const balanceSheetRow2 = 'balanceSheetRow2';
+  static const balanceSheetRow3 = 'balanceSheetRow3';
+  static const balanceSheetRow4 = 'balanceSheetRow4';
+  static const balanceSheetRow5 = 'balanceSheetRow5';
+  static const balanceSheetRow6 = 'balanceSheetRow6';
+  static const balanceSheetRow7 = 'balanceSheetRow7';
+  static const balanceSheetRow8 = 'balanceSheetRow8';
+  static const balanceSheetRow9 = 'balanceSheetRow9';
+  static const balanceSheetRow10 = 'balanceSheetRow10';
+  static const balanceSheetRow11 = 'balanceSheetRow11';
+  static const balanceSheetRow12 = 'balanceSheetRow12';
+  static const workingCapitalAppBar = 'workingCapitalAppBar';
+  static const forgotPasswordTitle = 'forgotPasswordTitle';
+  static const emailAddress = 'emailAddress';
+  static const password = 'password';
+  static const leaveHistoryContainer = 'leaveHistoryContainer';
+  static const leaveHistoryContainerr = 'leaveHistoryContainerr';
+  static const leaveHistoryContainer1 = 'leaveHistoryContainer1';
+  static const leaveHistoryContainer2 = 'leaveHistoryContainer2';
+  static const leaveHistoryContainer3 = 'leaveHistoryContainer3';
+  static const leaveHistoryContainer4 = 'leaveHistoryContainer4';
+  static const leaveHistoryContainer5 = 'leaveHistoryContainer5';
+  static const leaveHistoryContainer6 = 'leaveHistoryContainer6';
+  static const leaveHistoryContainer7 = 'leaveHistoryContainer7';
+  static const leaveHistoryContainer8 = 'leaveHistoryContainer8';
+  static const leaveHistoryContainer9 = 'leaveHistoryContainer9';
+  static const leaveHistoryContainer10 = 'leaveHistoryContainer10';
+  static const leaveHistoryContainer11 = 'leaveHistoryContainer11';
+  static const leaveHistoryContainer12 = 'leaveHistoryContainer12';
+  static const leaveHistoryContainer13 = 'leaveHistoryContainer13';
+  static const leaveHistoryContainer14 = 'leaveHistoryContainer14';
+  static const leaveHistoryContainer15 = 'leaveHistoryContainer15';
+  static const leaveHistoryContainer16 = 'leaveHistoryContainer16';
+  static const leaveHistoryContainer17 = 'leaveHistoryContainer17';
+  static const leaveHistoryContainer18 = 'leaveHistoryContainer18';
+  static const leaveHistoryContainer19 = 'leaveHistoryContainer19';
+  static const leaveHistoryContainer20 = 'leaveHistoryContainer20';
+  static const applyLeaveContainer = 'applyLeaveContainer';
+  static const applyLeaveContainer1 = 'applyLeaveContainer1';
+  static const applyLeaveContainer2 = 'applyLeaveContainer2';
+  static const applyLeaveContainer3 = 'applyLeaveContainer3';
+  static const performanceContainer = 'performanceContainer';
+  static const performanceContainer1 = 'performanceContainer1';
+  static const title = 'title';
+  static const noData = 'noData';
+  static const bodyTitle = 'bodyTitle';
+  static const performanceContainer3 = 'performanceContainer3';
+  static const applyLeaveContainer4 = 'applyLeaveContainer4';
+  static const applyLeaveContainer5 = 'applyLeaveContainer5';
+  static const applyLeaveContainer6 = 'applyLeaveContainer6';
+  static const applyLeaveContainer7 = 'applyLeaveContainer7';
+  static const applyLeaveContainer8 = 'applyLeaveContainer8';
+  static const applyLeaveContainer9 = 'applyLeaveContainer9';
+  static const applyLeaveContainer10 = 'applyLeaveContainer10';
+  static const applyLeaveContainer11 = 'applyLeaveContainer11';
+  static const notificationTitle = 'notificationTitle';
+  static const notificationContainer = 'notificationContainer';
+  static const salarySlipScreenTitle = 'salarySlipScreenTitle';
+  static const salarySlipScreenDescription = 'salarySlipScreenDescription';
+  static const salarySlipScreenContainer = 'salarySlipScreenContainer';
+  static const salarySlipScreenContainer1 = 'salarySlipScreenContainer1';
+  static const salarySlipScreenContainer2 = 'salarySlipScreenContainer2';
+  static const loanScreenTitle = 'loanScreenTitle';
+  static const loanScreenDescription = 'loanScreenDescription';
+  static const loanScreenApplyLoan = 'loanScreenApplyLoan';
+  static const loanScreenContainerStats = 'loanScreenContainerStats';
+  static const loanScreenContainer = 'loanScreenContainer';
+  static const loanScreenContainer1 = 'loanScreenContainer1';
+  static const loanScreenContainer2 = 'loanScreenContainer2';
+  static const loanScreenContainer3 = 'loanScreenContainer3';
+  static const loanScreenContainer4 = 'loanScreenContainer4';
+  static const loanScreenContainer5 = 'loanScreenContainer5';
+  static const loanScreenContainer6 = 'loanScreenContainer6';
+  static const loanScreenContainer7 = 'loanScreenContainer7';
+  static const loanScreenContainer8 = 'loanScreenContainer8';
+  static const loanScreenInstallment = 'loanScreenInstallment';
+  static const loanScreenContainerData = 'loanScreenContainerData';
+  static const loanScreenPreviousLoan = 'loanScreenPreviousLoan';
+  static const applyLoanScreenTitle = 'applyLoanScreenTitle';
+  static const applyLoanScreenContainerTitle = 'applyLoanScreenContainerTitle';
+  static const applyLoanScreenContainerDeduction =
+      'applyLoanScreenContainerDeduction';
+  static const applyLoanScreenContainerAmount =
+      'applyLoanScreenContainerAmount';
+  static const applyLoanScreenContainerReason =
+      'applyLoanScreenContainerReason';
+  static const applyLoanScreenContainerNumber =
+      'applyLoanScreenContainerNumber';
+  static const messageScreenTitle = 'messageScreenTitle';
+  static const settingScreenTitle = 'settingScreenTitle';
+  static const settingScreenLogin = 'settingScreenLogin';
+  static const settingScreenLogout = 'settingScreenLogout';
+  static const teamReportScreenTitle = 'teamReportScreenTitle';
+  static const teamReportScreenDescription = 'teamReportScreenDescription';
+  static const teamReportScreenName = 'teamReportScreenName';
+  static const teamReportScreenLeave = 'teamReportScreenLeave';
+  static const teamReportScreenBtn = 'teamReportScreenBtn';
+  static const teamReportScreenBtn1 = 'teamReportScreenBtn1';
+  static const evaluationScreenTitle = 'evaluationScreenTitle';
+  static const evaluationScreenDescription = 'evaluationScreenDescription';
+  static const evaluationScreenContainer1 = 'evaluationScreenContainer1';
+  static const evaluationScreenContainer2 = 'evaluationScreenContainer2';
+  static const evaluationScreenJob = 'evaluationScreenJob';
+  static const evaluationScreenWork = 'evaluationScreenWork';
+  static const evaluationScreenAttendance = 'evaluationScreenAttendance';
+  static const evaluationScreenInitiative = 'evaluationScreenInitiative';
+  static const evaluationScreenCommunication = 'evaluationScreenCommunication';
+  static const evaluationScreenDependability = 'evaluationScreenDependability';
+  static const performanceTeamReportScreenTitle =
+      'performanceTeamReportScreenTitle';
+  static const performanceTeamReportScreenDescription =
+      'performanceTeamReportScreenDescription';
+  static const performanceTeamReportScreenAddRecord =
+      'performanceTeamReportScreenAddRecord';
+  static const performanceTeamReportScreenContainer =
+      'performanceTeamReportScreenContainer';
+  static const addRecordScreenTitle = 'addRecordScreenTitle';
+  static const addRecordScreenDescription = 'addRecordScreenDescription';
+  static const addRecordScreenProblem = 'addRecordScreenProblem';
+  static const addRecordScreenLow = 'addRecordScreenLow';
+  static const addRecordScreenMedium = 'addRecordScreenMedium';
+  static const addRecordScreenHigh = 'addRecordScreenHigh';
+  static const addRecordScreenSevere = 'addRecordScreenSevere';
+  static const memberAttendanceReportScreenTitle =
+      'memberAttendanceReportScreenTitle';
+  static const memberAttendanceReportScreenDescription =
+      'memberAttendanceReportScreenDescription';
+  static const memberAttendanceReportScreenContainer =
+      'memberAttendanceReportScreenContainer';
+  static const memberAttendanceReportScreenContainerYear =
+      'memberAttendanceReportScreenContainerYear';
+  static const memberAttendanceReportScreenContainerHours =
+      'memberAttendanceReportScreenContainerHours';
+  static const memberAttendanceReportScreenContainerHour =
+      'memberAttendanceReportScreenContainerHour';
+  static const memberAttendanceReportScreenContainerLeaves =
+      'memberAttendanceReportScreenContainerLeaves';
+  static const memberAttendanceReportScreenTimeSheet =
+      'memberAttendanceReportScreenTimeSheet';
+  static const memberAttendanceReportScreenNoData =
+      'memberAttendanceReportScreenNoData';
+  static const evaluationHistoryScreenTitle = 'evaluationHistoryScreenTitle';
+  static const addEvaluation = 'addEvaluation';
+  static const allLoanScreenTiTle = 'allLoanScreenTiTle';
+  static const allLoanScreenNku = 'allLoanScreenNku';
+  static const allLoanScreenHr = 'allLoanScreenHr';
+  static const allLoanScreenEmployee = 'allLoanScreenEmployee';
+  static const allLoanScreenDesignation = 'allLoanScreenDesignation';
+  static const allLoanScreenDate = 'allLoanScreenDate';
+  static const announcementScreenTitle = 'announcementScreenTitle';
+  static const announcementScreenNku = 'announcementScreenNku';
+  static const announcementScreenHr = 'announcementScreenHr';
+  static const teamReportScreenSearchHint = 'teamReportScreenSearchHint';
+}
