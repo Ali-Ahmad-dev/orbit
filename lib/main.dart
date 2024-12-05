@@ -36,11 +36,13 @@ Future<void> _handleFirebaseBackgroundMessage(RemoteMessage message) async {
 }
 
 main() async {
-  HttpOverrides.global = MyHttpOverrides();
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  HttpOverrides.global = MyHttpOverrides();
 
   WebSocketServices webSocketServices = WebSocketServices();
+  await webSocketServices.initializeWebSocket();
   await Permission.notification.isDenied.then((value) {
     if (value) {
       Permission.notification.request();
@@ -51,9 +53,8 @@ main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Get.put(MainHelper(), permanent: true);
   Get.put(HrAppInternetChecker(), permanent: true);
-  // FirebaseMessaging.onBackgroundMessage(_handleFirebaseBackgroundMessage);
-  // Get.put(OrbitPushNotificationService(), permanent: true);
-
+// FirebaseMessaging.onBackgroundMessage(_handleFirebaseBackgroundMessage);
+// Get.put(OrbitPushNotificationService(), permanent: true);
   runApp(MyApp());
 }
 
@@ -97,27 +98,23 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
     return;
   }
 
-  // Implement API call or WebSocket reconnection logic here
-  // Example: check for pending notifications or data
-
+  // Reinitialize WebSocket if disconnected
+  WebSocketServices().initializeWebSocket();
   BackgroundFetch.finish(taskId);
 }
 
 void initializeBackgroundFetch() {
   BackgroundFetch.configure(
     BackgroundFetchConfig(
-      minimumFetchInterval: 15, // In minutes
+      minimumFetchInterval: 15, // 15-minute intervals
       stopOnTerminate: false,
       enableHeadless: true,
     ),
     (String taskId) async {
-      print("Background fetch triggered: $taskId");
-
-      // Reconnect WebSocket or poll the server for data
+      WebSocketServices().initializeWebSocket();
       BackgroundFetch.finish(taskId);
     },
     (String taskId) async {
-      print("Background fetch timeout: $taskId");
       BackgroundFetch.finish(taskId);
     },
   );

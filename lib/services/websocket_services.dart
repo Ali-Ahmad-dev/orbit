@@ -36,7 +36,6 @@ class WebSocketServices {
       foregroundTaskOptions: ForegroundTaskOptions(
         eventAction: ForegroundTaskEventAction.repeat(5000),
         autoRunOnBoot: true,
-        autoRunOnMyPackageReplaced: true,
         allowWakeLock: true,
         allowWifiLock: true,
       ),
@@ -61,14 +60,8 @@ class WebSocketServices {
     }
   }
 
-  void initializeWebSocket() async {
+  Future<void> initializeWebSocket() async {
     await NotificationManager.initialize();
-    Logger.root.level = Level.ALL;
-
-    Logger.root.onRecord.listen((LogRecord rec) {
-      print("${rec.level.name}: ${rec.time}: ${rec.message}");
-    });
-
     const serverUrl = NetworkEndpoints.webSocketUrl;
 
     final httpOptions = HttpConnectionOptions(
@@ -83,6 +76,7 @@ class WebSocketServices {
 
     _hubConnection?.onclose(({error}) {
       print('WebSocket closed. Error: $error');
+      reconnect(); // Reconnect on closure
     });
 
     try {
@@ -90,12 +84,12 @@ class WebSocketServices {
       print('WebSocket connection established');
     } catch (e) {
       print('Error starting WebSocket connection: $e');
+      reconnect();
     }
 
     _hubConnection?.on('ReceiveMessage', (List? arguments) async {
       Map<dynamic, dynamic> formattedData =
           jsonDecode(arguments![1].toString());
-
       int? storedId = await SharedPrefs.getEmployeeId();
 
       if (storedId == int.parse(arguments[0])) {
@@ -104,54 +98,26 @@ class WebSocketServices {
         await startService(formattedData["Title"], formattedData["Message"]);
       }
     });
+  }
 
-    _dataStreamController.stream.listen((data) {
-      print('Received data: $data');
+  void reconnect() {
+    Future.delayed(const Duration(seconds: 10), () {
+      initializeWebSocket();
     });
   }
 
   Future<void> startService(String title, String message) async {
     await _requestPermissions();
-
-    // Start the foreground service with dynamic title and message
     FlutterForegroundTask.startService(
       serviceId: 256,
-      notificationTitle: title, // Use the actual title from WebSocket
-      notificationText: message, // Use the actual message from WebSocket
+      notificationTitle: title,
+      notificationText: message,
       notificationIcon: null,
-      notificationButtons: [
-        const NotificationButton(id: 'btn_hello', text: 'hello'),
-      ],
-      notificationInitialRoute: '/',
-      callback: startCallback,
     );
-  }
-
-  @pragma('vm:entry-point')
-  void startCallback() {
-    FlutterForegroundTask.setTaskHandler(FirstTaskHandler());
   }
 
   void dispose() {
     _dataStreamController.close();
     _hubConnection?.stop();
-  }
-}
-
-// Define the FirstTaskHandler outside WebSocketServices
-class FirstTaskHandler extends TaskHandler {
-  @override
-  Future<void> onStart(DateTime timestamp, TaskStarter starter) async {
-    // Start the WebSocket service here or manage ongoing WebSocket connection.
-  }
-
-  @override
-  void onRepeatEvent(DateTime timestamp) {
-    // Perform repeated task logic
-  }
-
-  @override
-  Future<void> onDestroy(DateTime timestamp) async {
-    // Cleanup or stop the service
   }
 }

@@ -9,15 +9,20 @@ class NotificationManager {
     const initSettings =
         InitializationSettings(android: androidSettings, iOS: iosSettings);
 
-    await _notifications.initialize(initSettings);
+    await _notifications.initialize(
+      initSettings,
+      onDidReceiveNotificationResponse: (NotificationResponse response) {
+        // Handle tap on notification
+      },
+    );
   }
 
   static Future<void> showNotification(String title, String body) async {
     const androidDetails = AndroidNotificationDetails(
-      'ReceiveMessage',
+      'websocket_channel',
       'WebSocket Notifications',
-      channelDescription: 'Notifications from WebSocket',
-      importance: Importance.high,
+      channelDescription: 'Notifications received from WebSocket',
+      importance: Importance.max,
       priority: Priority.high,
     );
 
