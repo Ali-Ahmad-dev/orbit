@@ -38,7 +38,7 @@ Future<void> _handleFirebaseBackgroundMessage(RemoteMessage message) async {
 main() async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   HttpOverrides.global = MyHttpOverrides();
 
   WebSocketServices webSocketServices = WebSocketServices();
