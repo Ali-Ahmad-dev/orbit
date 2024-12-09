@@ -21,6 +21,9 @@ class LeaveRequestsTestController extends GetxController {
   final LeaveRequestsRepository _repository;
   final loginController = Get.find<LoginModel>();
   LeaveRequestsTestController(this._repository);
+
+  RxMap<int, String?> leaveStatusMap = <int, String?>{}.obs;
+
   final mainHelper = Get.find<MainHelper>();
   RxList<ApprovalStatus> approvedLeaveList = RxList<ApprovalStatus>([]);
   RxList<String> statusNames = <String>[].obs;
@@ -103,8 +106,8 @@ class LeaveRequestsTestController extends GetxController {
 
   renderDatafromList() {
     for (int i = 0;
-        i < currentMonthAttendanceModel.value.leavesData!.length;
-        i++) {
+    i < currentMonthAttendanceModel.value.leavesData!.length;
+    i++) {
       print('Printing on index $i');
       renderDataUpdated(i);
     }
@@ -112,7 +115,7 @@ class LeaveRequestsTestController extends GetxController {
 
   renderDataUpdated(int index) {
     final unApprovedLEavesDtos =
-        currentMonthAttendanceModel.value.leavesData![index];
+    currentMonthAttendanceModel.value.leavesData![index];
     final createdFormattedDate = unApprovedLEavesDtos.createDDATETIME!
         .substring(0, min(unApprovedLEavesDtos.createDDATETIME!.length, 10));
     applyFromFormattedDate.add(unApprovedLEavesDtos.applYFROMDATE!
@@ -142,7 +145,7 @@ class LeaveRequestsTestController extends GetxController {
           leaveTypeApplicationTitle[index] = 'Leave Application for Half Day';
           leaveTypeHalfDayApplicationTitle[index] = 'Half Day';
           leaveTypeHalfDayApplicationBody[index] =
-              unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
+          unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
           leaveDatesTitleList.add(applyToFormattedDate[index]);
         } else {
           leaveTypeApplicationTitle[index] = 'Leave Application for 1 Day';
@@ -161,14 +164,14 @@ class LeaveRequestsTestController extends GetxController {
           // print('debugging12 => $leaveTypeHalfDayApplicationTitle');
           leaveTypeHalfDayApplicationTitle[index] = 'Half Day';
           leaveTypeHalfDayApplicationBody[index] =
-              unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
+          unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
         }
         leaveTypeApplicationTitle[index] =
-            'Leave Application for ${dateRange.length} Days';
+        'Leave Application for ${dateRange.length} Days';
         print('debugging12 => $unApprovedLEavesDtos');
         final mappedDateRange = dateRange
             .map((date) => date.toString().substring(
-                0, min(unApprovedLEavesDtos.applYTODATE!.length, 10)))
+            0, min(unApprovedLEavesDtos.applYTODATE!.length, 10)))
             .toList();
         leaveDatesTitleList.addAll(mappedDateRange);
       }
@@ -180,7 +183,7 @@ class LeaveRequestsTestController extends GetxController {
           leaveTypeApplicationTitle[index] = 'Leave Application for Half Day';
           leaveTypeHalfDayApplicationTitle[index] = 'Half Day';
           leaveTypeHalfDayApplicationBody[index] =
-              unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
+          unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
           leaveDatesTitleList.add(HrDatetimeUtil.toYearMonthDay(
               unApprovedLEavesDtos.isApprovedByTL![j]));
         }
@@ -188,7 +191,7 @@ class LeaveRequestsTestController extends GetxController {
             unApprovedLEavesDtos.isApprovedByTL![j]));
       }
       leaveTypeApplicationTitle[index] =
-          'Leave Application for ${unApprovedLEavesDtos.isApprovedByTL!.length} Day';
+      'Leave Application for ${unApprovedLEavesDtos.isApprovedByTL!.length} Day';
     }
     print('renderingDataController $index => $leaveDatesTitleList');
     // mainleaveDatesTitleList.add(leaveDatesTitleList);
@@ -211,7 +214,7 @@ class LeaveRequestsTestController extends GetxController {
         leaveTypeApplicationTitle = 'Leave Application for Half Day';
         leaveTypeHalfDayApplicationTitle = 'Half Day';
         leaveTypeHalfDayApplicationBody =
-            unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
+        unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
         leaveDatesTitleList.add(applyToFormattedDate);
       } else {
         leaveTypeApplicationTitle = 'Leave Application for 1 Day';
@@ -227,14 +230,14 @@ class LeaveRequestsTestController extends GetxController {
       if (leaveType == 'Half Day') {
         leaveTypeHalfDayApplicationTitle = 'Half Day';
         leaveTypeHalfDayApplicationBody =
-            unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
+        unApprovedLEavesDtos.firstHalf! ? 'First Half' : 'Second Half';
       }
       leaveTypeApplicationTitle =
-          'Leave Application for ${dateRange.length} Days';
+      'Leave Application for ${dateRange.length} Days';
       leaveDatesTitleList.addAll(dateRange
           .map((date) => date
-              .toString()
-              .substring(0, min(unApprovedLEavesDtos.applYTODATE!.length, 10)))
+          .toString()
+          .substring(0, min(unApprovedLEavesDtos.applYTODATE!.length, 10)))
           .toList());
     }
   }
@@ -268,8 +271,8 @@ class LeaveRequestsTestController extends GetxController {
       print(
           '${NetworkEndpoints.GetCurrentMonthAttendenceOfTeamMembers}?EmployeeId=${pendingRequestModel!.employeeId}');
       CurrentMonthAttendanceModel result =
-          await _repository.getCurrentMonthAttendance(
-              '${NetworkEndpoints.GetCurrentMonthAttendenceOfTeamMembers}?EmployeeId=${pendingRequestModel!.employeeId}');
+      await _repository.getCurrentMonthAttendance(
+          '${NetworkEndpoints.GetCurrentMonthAttendenceOfTeamMembers}?EmployeeId=${pendingRequestModel!.employeeId}');
       print(result);
       if (result.isError == false) {
         currentMonthAttendanceModel.value = result;
@@ -345,8 +348,8 @@ class LeaveRequestsTestController extends GetxController {
         errorMessage.value = '';
         apiCalling.value = true;
         CurrentMonthAttendanceModel result =
-            await _repository.getCurrentMonthAttendance(
-                '${NetworkEndpoints.GetCurrentMonthAttendenceOfTeamMembers}?EmployeeId=${pendingRequestModel!.employeeId}');
+        await _repository.getCurrentMonthAttendance(
+            '${NetworkEndpoints.GetCurrentMonthAttendenceOfTeamMembers}?EmployeeId=${pendingRequestModel!.employeeId}');
         print(result);
         if (result.isError == false) {
           currentMonthAttendanceModel.value = result;
@@ -386,14 +389,14 @@ class LeaveRequestsTestController extends GetxController {
       var data = {
         "LeaveRequestId": unApprovedLEavesDtos.id,
         "ApproveDate":
-            dateTimeList.map((value) => value.toIso8601String()).toList(),
+        dateTimeList.map((value) => value.toIso8601String()).toList(),
         "Comments": comments.text.trim(),
         "isApproved": true,
         "EmployeeId": pendingRequestModel!.employeeId,
         "LeaveTypeId": unApprovedLEavesDtos.leaveTypeId,
-        "ApprovalStatusId": selectStatusId, // Use dynamic value
+        "ApprovalStatusId":  selectStatusId
       };
-      print('approveLeaves => $data');
+      print('approveLeaves =>......................... $data');
       var result;
       if (selectStatusId == 1) {
         result = await _repository.approveLeaves(
@@ -423,7 +426,7 @@ class LeaveRequestsTestController extends GetxController {
   Future<void> fetchApprovalStatuses() async {
     try {
       final response =
-          await _repository.getApprovalStatus(NetworkEndpoints.approvalStatus);
+      await _repository.getApprovalStatus(NetworkEndpoints.approvalStatus);
       approvedStatus = GetApprovedStatus.fromJson(response);
       print('Approved Satus: $approvedStatus');
       approvedLeaveList.value = approvedStatus.approvalStatus!;
