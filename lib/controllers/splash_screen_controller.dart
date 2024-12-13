@@ -15,6 +15,7 @@ import 'package:orbit/utils/hr_app_snack_bar.dart';
 import 'package:orbit/utils/secure_storage.dart';
 import 'package:orbit/utils/shared_prefrences.dart';
 import '../constants/routes/routes_endpoints.dart';
+import '../services/firebase_notification.dart';
 
 class SplashScreenController extends GetxController {
   LoginController loginController = Get.put(
@@ -28,7 +29,9 @@ class SplashScreenController extends GetxController {
     rememberMe();
     getDesignation();
     super.onInit();
+    initializeApp();
   }
+
 
   Future<void> getDesignation() async {
     final designation = await SharedPrefs.getEmployeeDesignation();
@@ -104,5 +107,15 @@ class SplashScreenController extends GetxController {
   Future<String?> _retrieveToken() async {
     final token = await FirebaseMessaging.instance.getToken();
     return token;
+  }
+final notificationServices = NotificationServices();
+  void initializeApp() {
+    notificationServices.firebaseInit();
+    //notificationServices.isTokenRefresh();
+    notificationServices.requestNotificationPermission();
+    notificationServices.getDeviceToken().then((value){
+      print("Device token");
+      print(value);
+    });
   }
 }

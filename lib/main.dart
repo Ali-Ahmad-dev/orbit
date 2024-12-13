@@ -38,11 +38,12 @@ Future<void> _handleFirebaseBackgroundMessage(RemoteMessage message) async {
 main() async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
   HttpOverrides.global = MyHttpOverrides();
+  await Firebase.initializeApp();
 
-  WebSocketServices webSocketServices = WebSocketServices();
-  await webSocketServices.initializeWebSocket();
+
+ // WebSocketServices webSocketServices = WebSocketServices();
+ // await webSocketServices.initializeWebSocket();
   await Permission.notification.isDenied.then((value) {
     if (value) {
       Permission.notification.request();
@@ -99,7 +100,7 @@ void backgroundFetchHeadlessTask(HeadlessTask task) async {
   }
 
   // Reinitialize WebSocket if disconnected
-  WebSocketServices().initializeWebSocket();
+  //WebSocketServices().initializeWebSocket();
   BackgroundFetch.finish(taskId);
 }
 

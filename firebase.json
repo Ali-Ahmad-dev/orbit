@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"orbit-client","appId":"1:595992445667:android:a8f5dae2c43176f962bbd6","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"orbit-client","configurations":{"android":"1:595992445667:android:a8f5dae2c43176f962bbd6","ios":"1:595992445667:ios:6ca8a39a7c348b1f62bbd6"}}}}}}

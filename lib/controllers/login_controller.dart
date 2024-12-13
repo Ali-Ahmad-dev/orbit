@@ -10,23 +10,28 @@ import 'package:orbit/utils/secure_storage.dart';
 import 'package:orbit/utils/shared_prefrences.dart';
 import '../constants/routes/routes_endpoints.dart';
 import '../helper/main_helper.dart';
-
 import '../repositories/login_repository.dart';
+import '../services/firebase_notification.dart';
 import '../utils/hr_app_internet_checker.dart';
 
 class LoginController extends GetxController {
   final LoginRepository _repository;
   LoginController(this._repository);
+
   // Dependencies
   final MainHelper mainHelper = Get.find<MainHelper>();
   final SecureStorage secureStorage = SecureStorage();
+
   // Form key
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   // Login model
   LoginModel loginModel = LoginModel();
+
   // Text controllers
   final TextEditingController emailAddressController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
   // State variables
   final RxString errorMessage = ''.obs;
   final RxBool apiCalling = false.obs;
@@ -34,7 +39,8 @@ class LoginController extends GetxController {
   bool isFingerPrintEnabled = true;
   RxString designation = ''.obs;
   LoginRepository get repository => _repository;
-  bool _isInitialized = false; //new
+  bool _isInitialized = false;
+
   // Toggles password visibility
   void togglePasswordVisibility() {
     isPasswordObsecure.value = !isPasswordObsecure.value;
@@ -44,13 +50,10 @@ class LoginController extends GetxController {
   void onInit() {
     super.onInit();
     if (!_isInitialized) {
-      //new
       FlutterNativeSplash.remove();
       _initializeFingerPrint();
       _isInitialized = true;
     }
-    // FlutterNativeSplash.remove();
-    // _initializeFingerPrint();
   }
 
   // Initializes fingerprint authentication state
@@ -74,34 +77,41 @@ class LoginController extends GetxController {
     }
   }
 
-// Helper method to check internet connection
+  // Helper method to check internet connection
   Future<bool> _checkInternetConnection() async {
     final isConnectionAvailable =
-        await Get.find<HrAppInternetChecker>().hasConnection();
+    await Get.find<HrAppInternetChecker>().hasConnection();
     if (!isConnectionAvailable) {
       return false;
     }
     return isConnectionAvailable;
   }
 
-// Helper method to perform login
   Future<void> _performLogin() async {
     apiCalling.value = true;
     errorMessage.value = '';
-    // final fcmFuture = Get.find<OrbitPushNotificationService>().getToken();
+    final notificatioServices = NotificationServices();
     final email = emailAddressController.text.trim();
     final password = passwordController.text.trim();
+    final fcmToken = await notificatioServices.getDeviceToken();
+
     final loginData = {
       "email": email,
       "password": password,
-      // "fcmToken": await fcmFuture, // Ensure FCM token is fetched
+      "fcmToken": fcmToken,
       "origin": Platform.isAndroid ? 'A' : 'I',
     };
+
     try {
-      final result =
-          await _repository.loginUser(NetworkEndpoints.login, loginData);
-      print(json.encode(result));
-      await _handleLoginResult(result, email, password);
+      final result = await _repository.loginUser(NetworkEndpoints.login, loginData);
+
+      // Ensure result is not null or empty
+      if (result != null && result.isNotEmpty) {
+        final parsedResult = Map<String, dynamic>.from(result);
+        await _handleLoginResult(parsedResult, email, password);
+      } else {
+        errorMessage.value = 'Invalid server response. Please try again.';
+      }
     } catch (error) {
       _handleLoginError(error);
     } finally {
@@ -109,12 +119,12 @@ class LoginController extends GetxController {
     }
   }
 
-// Helper method to handle login result
   Future<void> _handleLoginResult(
       Map<String, dynamic> result, String email, String password) async {
     final status = result['statusCode'];
     loginModel = LoginModel.fromJson(result);
-    if (!loginModel.isError! && status == 200) {
+
+    if (loginModel != null && !loginModel.isError! && status == 200) {
       _onLoginSuccess(email, password);
 
       SharedPrefs.saveLoginModel(loginModel);
@@ -126,18 +136,19 @@ class LoginController extends GetxController {
     }
   }
 
+
   Future<void> _onLoginSuccess(String email, String password) async {
     await _isLoggedIn();
     Get.put(loginModel, permanent: true);
     Get.offAllNamed(RouteEndpoints.bottomNav);
   }
 
-// Actions to perform on login failure
+  // Actions to perform on login failure
   void _onLoginFailure() {
     errorMessage.value = loginModel.message ?? 'Email or password is invalid';
   }
 
-// Helper method to handle login errors
+  // Helper method to handle login errors
   void _handleLoginError(dynamic error) {
     print('Error: $error');
     errorMessage.value = loginModel.message ?? 'An error occurred';

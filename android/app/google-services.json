@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "991374210052",
-    "project_id": "orbit-client-sundas",
-    "storage_bucket": "orbit-client-sundas.appspot.com"
+    "project_number": "595992445667",
+    "project_id": "orbit-client",
+    "storage_bucket": "orbit-client.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:991374210052:android:e5de0760ba91df5d76b151",
+        "mobilesdk_app_id": "1:595992445667:android:a8f5dae2c43176f962bbd6",
         "android_client_info": {
           "package_name": "com.nku.orbitclient"
         }
@@ -15,7 +15,45 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCCI6xwkGtXA2VXPSxBkt3na7T2E1bO0-E"
+          "current_key": "AIzaSyDGbEPpZfZLNjd-F372xDitjbcTsfdv_Wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595992445667:android:a54d64deaad124a462bbd6",
+        "android_client_info": {
+          "package_name": "com.nku.orbitclient.sundas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGbEPpZfZLNjd-F372xDitjbcTsfdv_Wk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595992445667:android:e783198f7a3a638662bbd6",
+        "android_client_info": {
+          "package_name": "com.orbitclient.live"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGbEPpZfZLNjd-F372xDitjbcTsfdv_Wk"
         }
       ],
       "services": {
